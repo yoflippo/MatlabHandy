@@ -152,21 +152,7 @@ classdef Violin < handle
                 fill(pos+[-1,1,1,-1]*args.BoxWidth, ...
                      [quartiles(1) quartiles(1) quartiles(3) quartiles(3)], ...
                      [1 1 1]);
-                 
-            % plot the data mean
-            meanValue = mean(data);
-            if length(density) > 1
-                meanDensityWidth = interp1(value, density, meanValue)*width;
-            else % all data is identical:
-                meanDensityWidth = density*width;
-            end
-            if meanDensityWidth<args.BoxWidth/2
-                meanDensityWidth=args.BoxWidth/2;
-            end
-            obj.MeanPlot = plot(pos+[-1,1].*meanDensityWidth, ...
-                                [meanValue, meanValue]);
-            obj.MeanPlot.LineWidth = 1;
-                 
+                                
             IQR = quartiles(3) - quartiles(1);
             lowhisker = quartiles(1) - 1.5*IQR;
             lowhisker = max(lowhisker, min(data(data > lowhisker)));
@@ -197,6 +183,20 @@ classdef Violin < handle
             obj.ShowData = args.ShowData;
             obj.ShowNotches = args.ShowNotches;
             obj.ShowMean = args.ShowMean;
+            
+                      % plot the data mean
+            meanValue = mean(data);
+            if length(density) > 1
+                meanDensityWidth = interp1(value, density, meanValue)*width;
+            else % all data is identical:
+                meanDensityWidth = density*width;
+            end
+            if meanDensityWidth<args.BoxWidth/2
+                meanDensityWidth=args.BoxWidth/2;
+            end
+            obj.MeanPlot = plot(pos+[-1,1].*meanDensityWidth, ...
+                                [meanValue, meanValue],'k');
+            obj.MeanPlot.LineWidth = 1;
         end
 
         function set.EdgeColor(obj, color)
