@@ -154,5 +154,5 @@ for nf = 1:length(filesInPath)
     cd(currPath)
 end
 
-
+fclose('all');
 end
