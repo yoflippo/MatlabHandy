@@ -1,4 +1,4 @@
-function [output] = findSubFolderPath(absolutePath,rootFolder,nameFolder)
+function [output, dirs] = findSubFolderPath(absolutePath,rootFolder,nameFolder)
 if ~contains(absolutePath,rootFolder)
     error([newline mfilename ': ' newline 'Rootfolder not within absolutePath' newline]);
 end
