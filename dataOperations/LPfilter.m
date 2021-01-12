@@ -1,4 +1,4 @@
-function[smooth,res]=LPfilter(data,Fs,Fc)
+ function[smooth,res]=LPfilter(data,Fs,Fc)
 
 % LPFILTER.M
 % LPfilter(data,Fs,Fc)

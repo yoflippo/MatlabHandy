@@ -31,7 +31,7 @@
 %               entropy. American Journal of Physiology-Heart and         %
 %               Circulatory Physiology, 278(6), H2039-H2049.              %
 % ----------------------------------------------------------------------- %
-function value = sampen(signal, m, r, dist_type)
+function value = SampEn(signal, m, r, dist_type)
 
     % Error detection and defaults
     if nargin < 3, error('Not enough parameters.'); end
