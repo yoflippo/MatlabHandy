@@ -66,8 +66,8 @@ try
     fclose(fileID);
     
 catch err
-    fclose(fileID);
-    warning(err)
+    fclose('all');
+    warning(err.message)
     error([mfilename ': Could not write to the file']);
 end
 
