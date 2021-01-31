@@ -4,9 +4,9 @@ dim_v1 = size(v1);
 dim_v2 = size(v2);
 
 if any( (max(dim_v1)==3) | (max(dim_v2)==3)) 
-    testLayoutVectors(dim_v1,dim_v2,v1,v2,@angleBetween_3dim_2Vectors);
+    angle = testLayoutVectors(dim_v1,dim_v2,v1,v2,@angleBetween_3dim_2Vectors);
 else
-    testLayoutVectors(dim_v1,dim_v2,v1,v2,@angleBetween_2dim_2Vectors);
+    angle = testLayoutVectors(dim_v1,dim_v2,v1,v2,@angleBetween_2dim_2Vectors);
 end
 
     function angle = angleBetween_3dim_2Vectors(v1,v2)
@@ -17,7 +17,7 @@ end
         angle = acosd(dot(v1,v2)/(norm(v1)*norm(v2)));
     end
 
-    function testLayoutVectors(dim_v1,dim_v2,v1,v2,handleAngleFunction)
+    function angle = testLayoutVectors(dim_v1,dim_v2,v1,v2,handleAngleFunction)
         if not(any(dim_v1==1)) && not(any(dim_v2==1))
             for nA = 1:length(v1) % Assumed row-major order & v1 contains multiple vectors
                 angle(nA) = handleAngleFunction(v1(nA,:),v2(nA,:));
