@@ -108,7 +108,7 @@ function latex = latexTable(input)
 if isfield(input,'tablePlacement') && (length(input.tablePlacement)>0)
     input.tablePlacement = ['[',input.tablePlacement,']'];
 else
-    input.tablePlacement = '';
+    input.tablePlacement = ['[h]'];
 end
 % Pivoting of the input data switched off per default:
 if ~isfield(input,'transposeTable'),input.transposeTable = 0;end

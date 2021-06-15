@@ -1,4 +1,7 @@
 function [output, dirs] = findSubFolderPath(absolutePath,rootFolder,nameFolder)
+if not(exist('absolutePath','var')) || isempty(absolutePath)
+    absolutePath = pwd;
+end
 if ~contains(absolutePath,rootFolder)
     error([newline mfilename ': ' newline 'Rootfolder not within absolutePath' newline]);
 end

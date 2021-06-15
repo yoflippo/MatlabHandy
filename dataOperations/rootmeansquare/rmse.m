@@ -4,6 +4,10 @@ if r>1 && c>1
     error([newline mfilename mfilename ': ' newline blanks(30) ...
         ': Input "vector" is not a vector' newline]);
 end
-rms = sqrt(mean(differencevector.^2));
+if any(isnan(differencevector))
+    warning([newline mfilename ': ' newline 'NaN values detected' newline]);
+    differencevector(isnan(differencevector))=[];
+end
+rms = sqrt(sum(differencevector.^2)/length(differencevector));
 end
 

@@ -1,6 +1,6 @@
 % CALCULATERELATIVEDISTANCE
 % BY: 2020  M. Schrauwen (markschrauwen@gmail.com)
-function [relativeDistance] = calculateRelativeDistance(vector)
+function [relativeDistance] = calculateTrajectDistance(vector)
 rowVector =  transposeToRowVector(vector);
 reference = rowVector(1,:);
 elementWiseDifference = diff(reference-rowVector);
