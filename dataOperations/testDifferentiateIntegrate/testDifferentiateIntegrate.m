@@ -1,10 +1,11 @@
 function testDifferentiateIntegrate()
 close all;
 
-fs = 1000;
+fs = 100;
 dt = 1/fs;
-te = 10;
+te = 20;
 t = 0:dt:te;
+% x = sin(2*pi*fs.*t) - 0.1*cos(t*10) + randn(1,length(t));
 x = sin(2*pi*fs.*t) - 0.1*cos(t*10);
 
 xg = gradient(x,dt);
